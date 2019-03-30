@@ -1,5 +1,6 @@
 $(function () {
-    $('js-shopping-list-form').submit(function(event) {
+  console.log('js working');  
+  $('#js-shopping-list-form').submit(function(event) {
         event.preventDefault();     // preventing default ! hah
         let userItem = $('#shopping-list-entry').val();
         $('#shopping-list-entry').val('');  // emptying user input, ready for next
@@ -17,13 +18,16 @@ $(function () {
             </div>
           </li>`);
     });
-    $('shopping-list').on('click', '.shopping-item-toggle', function(event){
-        $(this).closest('li').find('shopping-item').toggleClass('.shopping-item__checked');
+
+    $('.shopping-list').on('click', '.shopping-item-toggle', function(event){
+      $(this).closest('li').find('.shopping-item').toggleClass('.shopping-item__checked');
+
+      console.log('check button');  
+    });
+    $('.shopping-list').on('click', '.shopping-item-delete', function(event){
+      $(this).closest('li').remove();
     });
 });
-
-
-
 
 /*
 1 make sure DOM is ready
@@ -43,5 +47,5 @@ $(function () {
 - Enter items users need by hitting "Return" or click "Add item" button
 - Check and Uncheck items by clicking "Check" button
 - Permanently remove items from list
-methods to consider: .submit(), .preventDefault(), toggleClaa(), .closest()
+methods to consider: .submit(), .preventDefault(), toggleClass(), .closest()
 */
