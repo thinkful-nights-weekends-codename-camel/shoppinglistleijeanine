@@ -3,9 +3,27 @@ $(function () {
         event.preventDefault();     // preventing default ! hah
         let userItem = $('#shopping-list-entry').val();
         $('#shopping-list-entry').val('');  // emptying user input, ready for next
-        
+
+        $('.shopping-list').append(
+            `<li>
+            <span class="shopping-item">${userItem}</span>
+            <div class="shopping-item-controls">
+              <button class="shopping-item-toggle">
+                <span class="button-label">check</span>
+              </button>
+              <button class="shopping-item-delete">
+                <span class="button-label">delete</span>
+              </button>
+            </div>
+          </li>`);
+    });
+    $('shopping-list').on('click', '.shopping-item-toggle', function(event){
+        $(this).closest('li').find('shopping-item').toggleClass('.shopping-item__checked');
     });
 });
+
+
+
 
 /*
 1 make sure DOM is ready
